@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #E60000; /* Vodafone Red */
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #E60000; /* Vodafone Red */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d50000; /* Darker red */
+        }
+
+        .download-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #1e88e5;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .success-message {
+            color: red;
+            text-align: center;
+            font-size: 12px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Device Configuration</h1>
+
+    {% if error %}
+        <div style="color: red;">
+            <strong>Error: </strong>{{ error }}
+        </div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="host">Host:</label>
+        <input type="text" id="host" name="host" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required><br><br>
+
+        <label for="file">File:</label>
+        <input type="file" name="file" required><br><br>
+
+        <input type="submit" value="Run ">
+        {% if file %}
+        <p><a href="{% url 'downloads' %}" class="download-link" download>Download Report</a></p> 
+        {% else %} 
+        <div class=".error-message"><span>No Report generated </span></div>
+        {% endif %}
+
+
+        
+    <!-- Use the static tag to link the Excel file -->
+   
+
+    <!-- Alternatively, you can display a link to the file in a more styled way -->
+    <button onclick="window.location.href='{% static 'files/sample.xlsx' %}'">Download Supported Sample File Format</button>
+    
+    </form>
+    
+
+    
+</body>
+</html>
+

@@ -1,0 +1,4 @@
+django
+netmiko
+pandas
+openpyxl
