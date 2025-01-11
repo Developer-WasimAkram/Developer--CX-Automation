@@ -40,11 +40,11 @@ def user_signup(request):
             return render(request, 'accounts/signup.html', {'error': 'Username already exists'})
     return render(request, 'accounts/signup.html' )
 
-#@login_required
+@login_required
 def dashboard(request):
     
     return render(request, 'home/AppPage.html')
-
+@login_required
 def log_out(request):
     # code for user logout
     logout(request)
