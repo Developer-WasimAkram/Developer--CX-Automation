@@ -12,7 +12,13 @@
             background-color: #f9f9f9;
             padding: 20px;
             color: #333;
+            
         }
+        p {
+            color: #E60000; /* Vodafone Red */
+            text-align: center;
+        }
+
 
         h1 {
             color: #E60000; /* Vodafone Red */
@@ -77,11 +83,9 @@
             font-size: 14px;
         }
 
-        .success-message {
-            color: red;
-            text-align: center;
-            font-size: 12px;
-        }
+        
+
+    
 
 
 
@@ -115,15 +119,10 @@
         {% if file %}
         <p><a href="{% url 'downloads' %}" class="download-link" download>Download Report</a></p> 
         {% else %} 
-        <div class=".error-message"><span>No Report generated </span></div>
+        <div class=".error-message"   style="color: green; text-align=center;" >Run and Wait  </div>
+      
         {% endif %}
 
-
-        
-    <!-- Use the static tag to link the Excel file -->
-   
-
-    <!-- Alternatively, you can display a link to the file in a more styled way -->
     <button onclick="window.location.href='{% static 'files/sample.xlsx' %}'">Download Supported Sample File Format</button>
     
     </form>

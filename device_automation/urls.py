@@ -21,7 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include('device_config.urls')),
+    path("config/", include('device_config.urls') ,name='config'),
+    path('', include('accounts.urls'),name='login'),
 ]
 
 if settings.DEBUG:
