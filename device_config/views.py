@@ -76,22 +76,22 @@ def device_config(request):
             connection.disconnect()
             print(file_path)
             # Pass the file path to the template for download
-            return render(request, "config.html", {'file': file_path})
+            return render(request,  "config/config.html", {'file': file_path})
 
         except ValueError as ve:
             # Handle issues with form data or file reading
-            return render(request, "config.html", {'error': str(ve)})
+            return render(request, "config/config.html", {'error': str(ve)})
 
         except ConnectionError as ce:
             # Handle connection issues with the device
-            return render(request, "config.html", {'error': str(ce)})
+            return render(request, "config/config.html", {'error': str(ce)})
 
         except Exception as e:
             # General exception handling
-            return render(request, "config.html", {'error': f"An unexpected error occurred: {e}"})
+            return render(request, "config/config.html", {'error': f"An unexpected error occurred: {e}"})
 
     # GET request handling
-    return render(request, "config.html")
+    return render(request, "config/config.html")
 
 
 
