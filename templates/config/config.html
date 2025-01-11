@@ -10,7 +10,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
-            padding: 20px;
+            margin:0;
             color: #333;
             
         }
@@ -27,7 +27,7 @@
 
         form {
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
@@ -82,7 +82,31 @@
             text-align: center;
             font-size: 14px;
         }
-
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+        header {
+            background-color: #E60000;;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+    
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
         
 
     
@@ -92,6 +116,9 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1 style='color:white;'>Cisco CX- Automation </h1>
+    </header>
     <h1>Device Configuration</h1>
 
     {% if error %}
@@ -124,10 +151,15 @@
         {% endif %}
 
     <button onclick="window.location.href='{% static 'files/sample.xlsx' %}'">Download Supported Sample File Format</button>
+     <a href ="{% url 'dashboard' %}" > <strong> Back </strong></a>
     
     </form>
     
 
+    <footer>
+        <p style='color:white;'> 2025 Cisco CX- Automation | <strong>Wasim Akram</strong> </p>
+        
+    </footer>
     
 </body>
 </html>

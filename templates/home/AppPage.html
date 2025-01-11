@@ -15,8 +15,8 @@
         }
 
         header {
-            background-color: #E60000;;
-            padding: 20px;
+            background-color: #E60000;
+            padding: 0px;
             color: white;
             text-align: center;
         }
@@ -29,8 +29,8 @@
         .dashboard-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 40px;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 0px;
             flex-wrap: wrap;
         }
 
@@ -91,19 +91,50 @@
             color: white;
             text-decoration: none;
         }
+        .content {
+            padding: 5px;
+            /* Other content styling here */
+        }
+        
+        .logout-btn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 27px 20px;
+            background-color:#0078d4;
+            border: 2px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .logout-btn:hover {
+            background-color:#3399aa;
+        }
     </style>
 </head>
 <body>
+   
 
 <header>
     <h1>Cisco CX- Automation Dashboard</h1>
+   
+    <div class="content">
+        <a href="{% url 'logout' %}">
+        <button  class="logout-btn"><strong>Log Out</strong></button>
+        </a>
+        <!-- Other content of your page goes here -->
+    </div>
 </header>
 
 <div class="dashboard-container">
+
+   
     <!-- Device Automation Card -->
     <div class="app-card">
         <h2>Device Automation</h2>
-        <p>Automate the configuration and management of network devices.</p>
+        <p>Automate the configuration  of network Optical and Router Devices.</p>
         <a href="{% url 'device_config' %}" class="btn">Go to Device Automation</a>
     </div>
 
@@ -120,11 +151,32 @@
         <p>Generate SR-Policy based MOPs for network changes.</p>
         <a href="/sr-policy-mop" class="btn">Go to SR-Policy MOP</a>
     </div>
+    <div class="app-card">
+        <h2>L3-VPN MOP</h2>
+        <p>Generate L3-VPN  based MOPs for network changes.</p>
+        <a href="/sr-policy-mop" class="btn">Go to L3 VPN MOP</a>
+    </div>
+
+   
+
+
+
+
+
+
+
+
+
+
 </div>
 
+
+
+
+
 <footer>
-    <p>&copy; 2025 Cisco CX- Automation | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms & Conditions</a></p>
-    <p> Wasim Akram</p>
+    <p> 2025 Cisco CX- Automation | <strong>Wasim Akram</strong> </p>
+    
 </footer>
 
 </body>

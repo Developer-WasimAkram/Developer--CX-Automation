@@ -7,9 +7,7 @@ from django.conf import settings
 from netmiko.ssh_autodetect import SSHDetect
 
 
-def home(request):
-    
-    return render(request, 'home/AppPage.html')
+
 
 # Create your views here
 def device_config(request):

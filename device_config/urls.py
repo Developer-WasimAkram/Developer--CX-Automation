@@ -6,11 +6,11 @@ from django.conf.urls.static import static
 
 
 
-from .views import device_config,download_file,home
+from .views import device_config,download_file
 urlpatterns = [
     path("device_config/",device_config, name='device_config' ),
     path('downloads/',download_file,name='downloads'),
-    path('home/',home,name='home'),
+    
     
     
 ]
